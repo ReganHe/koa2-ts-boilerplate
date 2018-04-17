@@ -7,7 +7,6 @@ async function authorizationChecker(action: Action, roles?: string[]) {
   // const token = action.request.headers["authorization"];
   // return database.findUserByToken(token).roles.in(roles);
   action.request.testfiled = 'testvalue';
-
   try {
     const auth = action.request.headers['authorization'];
     const token = auth.slice(7);
