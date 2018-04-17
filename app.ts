@@ -2,9 +2,9 @@ import 'reflect-metadata'; // this shim is required
 import { createKoaServer, useContainer as routingUseContainer, Controller } from 'routing-controllers';
 import { useContainer as ormUseContainer, createConnection } from 'typeorm';
 import { Container } from 'typedi';
-import {User} from './app/models/user'
-import currentUserChecker from './app/helpers/currentUserChecker'
-import authorizationChecker from './app/helpers/authorizationChecker'
+import { User } from './app/models/user';
+import currentUserChecker from './app/helpers/currentUserChecker';
+import authorizationChecker from './app/helpers/authorizationChecker';
 
 // config ioc container
 routingUseContainer(Container);
@@ -31,14 +31,14 @@ ormUseContainer(Container);
 
 
 async function createConnServer() {
-  await createConnection()
+  await createConnection();
 
   const app = createKoaServer({
+    authorizationChecker,
+    currentUserChecker,
     controllers: [__dirname + '/app/apis/*.js'],
     middlewares: [__dirname + '/lib/middlewares/*.js'],
     defaultErrorHandler: true,
-    authorizationChecker: authorizationChecker,
-    currentUserChecker: currentUserChecker,
   });
 
   // start listen
@@ -49,9 +49,9 @@ async function createConnServer() {
 }
 
 try {
-  createConnServer()
-} catch(error) {
-  console.log('Error: ', error)
+  createConnServer();
+} catch (error) {
+  console.log('Error: ', error);
 }
 
 
