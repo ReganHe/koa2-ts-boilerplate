@@ -1,11 +1,5 @@
-/**
- * Module dependencies.
- */
 import * as path from 'path';
 
-/**
- * Expose
- */
 const configs = {
   root: path.normalize(`${__dirname}/..`),
   requestTimeOut: 1500,

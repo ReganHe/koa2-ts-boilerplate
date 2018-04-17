@@ -1,6 +1,5 @@
 import { EntityRepository, Repository, FindOneOptions } from 'typeorm';
 import { User } from '../models/user';
-import { Fact } from '../models/fact';
 import * as crypto from 'crypto';
 
 @EntityRepository(User)
@@ -33,6 +32,7 @@ export class UserRepository extends Repository<User> {
     if (passwordHash === user.password) {
       return user;
     }
+
   }
 
   async getByName(name: string): Promise<any> {
