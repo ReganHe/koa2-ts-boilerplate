@@ -14,7 +14,7 @@ export class AuthService {
 
   async register(name: string, password: string): Promise<User> {
     const user = await this.userRepository.register(name, password);
-    return user
+    return user;
   }
 
   async login(name: string, password: string) : Promise<User> {

@@ -13,8 +13,8 @@
     "dev": "yarn clean && tsc -w",
     "test": "mocha test/*.test.js --compilers js:babel-register --require test/_helpers",
     "test-watch": "npm run test -- --watch",
-    "lint": "eslint src/ test/",
-    "lint-watch": "esw -w src/ test/"
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "lint-fix": "tslint -p tsconfig.json -c tslint.json --fix"
   },
   "author": {
     "name": "Lanvige Jiang"

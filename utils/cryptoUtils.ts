@@ -8,5 +8,5 @@ export class CryptoUtils{
     }
     val = val.slice(0, -1) + secret;
     return md5(val);
-  };
+  }
 }

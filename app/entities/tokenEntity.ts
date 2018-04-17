@@ -4,17 +4,17 @@ import * as jwt from 'jsonwebtoken';
 
 export class TokenEntity extends BaseEntity {
   private token: string;
-  private auth_type: string;
-  private token_type: string;
+  private authType: string;
+  private tokenType: string;
 
   public constructor(user: User) {
     super();
 
     // 用 jwt 来生成 token
-    var token = jwt.sign({ id: user.id, token: user.token }, 'secret');
+    const token = jwt.sign({ id: user.id, token: user.token }, 'secret');
 
     this.token = token;
-    this.auth_type = 'bearer'
-    this.token_type = 'jwt'
+    this.authType = 'bearer';
+    this.tokenType = 'jwt';
   }
 }

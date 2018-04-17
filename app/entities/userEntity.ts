@@ -5,7 +5,7 @@ export class UserEntity extends BaseEntity {
   private id: number;
   private name: string;
   private token: string;
-  private created_at: Date;
+  private createdAt: Date;
 
   public constructor(user: User) {
     super();
@@ -13,6 +13,6 @@ export class UserEntity extends BaseEntity {
     this.id = user.id;
     this.name = user.name;
     this.token = user.token;
-    this.created_at = user.createdAt
+    this.createdAt = user.createdAt;
   }
 }

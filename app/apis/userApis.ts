@@ -5,7 +5,7 @@ import { Context } from 'koa';
 import { UserService } from '../services/userService';
 import { User } from '../models/user';
 import { Fact } from '../models/fact';
-import { UserEntity } from '../entities/userEntity'
+import { UserEntity } from '../entities/userEntity';
 
 
 @JsonController('/api/v1/users')
@@ -43,12 +43,10 @@ export class UserApi {
     // throw new NotAcceptableError("Custom Error");
 
     if (user2) {
-      const userEntity = new UserEntity(user2)
-
+      const userEntity = new UserEntity(user2);
       return DataResult.ok<UserEntity>(userEntity);
-    } else {
-      throw new NotAcceptableError("Custom Error");
     }
 
+    throw new NotAcceptableError('Custom Error');
   }
 }

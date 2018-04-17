@@ -1,7 +1,7 @@
 import { EntityRepository, Repository, FindOneOptions } from 'typeorm';
 import { User } from '../models/user';
 import { Fact } from '../models/fact';
-import * as crypto from 'crypto'
+import * as crypto from 'crypto';
 
 
 @EntityRepository(User)
@@ -13,7 +13,7 @@ export class UserRepository extends Repository<User> {
     const salt = crypto.randomBytes(10).toString('hex');
     const token = crypto.randomBytes(20).toString('hex');
 
-    const passwordHash = crypto.createHmac('sha256', password + salt);;
+    const passwordHash = crypto.createHmac('sha256', password + salt);
 
     const user = new User();
     // const user = this.create(); // same as const user = new User();
@@ -25,13 +25,13 @@ export class UserRepository extends Repository<User> {
 
     const userResult = await this.save(user);
 
-    return user
+    return user;
   }
 
   async login(name: string, password: string): Promise<any> {
     const cfg = {
       where: {
-        name
+        name,
       },
     } as FindOneOptions<User>;
 
@@ -39,18 +39,15 @@ export class UserRepository extends Repository<User> {
 
     const passwordHash = crypto.createHmac('sha256', password + user.salt).digest('hex');
 
-    if (passwordHash == user.password) {
-      return user
-    } else {
-      // Throw new Error
-      return null
+    if (passwordHash === user.password) {
+      return user;
     }
   }
 
   async getByName(name: string): Promise<any> {
     const cfg = {
       where: {
-        name
+        name,
       },
     } as FindOneOptions<User>;
 
