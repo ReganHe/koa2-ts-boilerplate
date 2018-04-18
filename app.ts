@@ -6,6 +6,7 @@ import { Container } from 'typedi';
 import currentUserChecker from './app/helpers/currentUserChecker';
 import authorizationChecker from './app/helpers/authorizationChecker';
 
+// 使用立即执行匿名函数（IIFE）简化入口
 (async () => {
   try {
     // config ioc container
