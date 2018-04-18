@@ -1,13 +1,10 @@
 import { Inject, Service } from 'typedi';
-import { JsonController, Param, Body, Get, Post, Put, Delete, UseInterceptor, Action, CurrentUser } from 'routing-controllers';
+import { JsonController, Body, Get, Post } from 'routing-controllers';
 import { DataResult } from '../../lib/response/dataResult';
-import { Context } from 'koa';
 import { AuthService } from '../services/authService';
-import { User } from '../models/user';
 import { UserEntity } from '../entities/userEntity';
 import { TokenEntity } from '../entities/tokenEntity';
 import { ResponseStatus } from '../../lib/enum/responseStatus';
-
 
 @JsonController('/api/v1')
 @Service()

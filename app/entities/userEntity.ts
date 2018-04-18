@@ -9,7 +9,7 @@ export class UserEntity extends BaseEntity {
 
   public constructor(user: User) {
     super();
-
+    console.log(`userMapper:${JSON.stringify(user)}`);
     this.id = user.id;
     this.name = user.name;
     this.token = user.token;

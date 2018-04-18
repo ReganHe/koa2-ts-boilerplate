@@ -1,9 +1,6 @@
-import { getConnection, getConnectionManager } from 'typeorm';
-import { JsonController, Param, Body, Get, Post, Put, Delete, UseInterceptor, Action, HeaderParam } from 'routing-controllers';
-import { Inject, Service } from 'typedi';
-import { Context } from 'koa';
-import { DBError } from '../../lib/errors/dbError';
-import { HealthCheckError } from '../../lib/errors/healthCheckError';
+import { getConnection } from 'typeorm';
+import { JsonController, Get, HeaderParam } from 'routing-controllers';
+import { Service } from 'typedi';
 
 @JsonController()
 @Service()
