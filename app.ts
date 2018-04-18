@@ -6,7 +6,7 @@ import { Container } from 'typedi';
 import currentUserChecker from './app/helpers/currentUserChecker';
 import authorizationChecker from './app/helpers/authorizationChecker';
 
-async function startService() {
+(async () => {
   try {
     // config ioc container
     routingUseContainer(Container);
@@ -29,9 +29,4 @@ async function startService() {
     console.log('Error: ', error);
   }
 
-}
-
-startService();
-
-
-
+})();
