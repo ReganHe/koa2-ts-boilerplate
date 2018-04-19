@@ -4,17 +4,13 @@
   "description": "The boilerplate for KOA2, TS and typedi, typeorm.",
   "scripts": {
     "clean": "rm -rf dist/*",
-    "start": "PORT=4001 NODE_ENV=development node dist/app.js",
-    "build:app": "tsc",
-    "build:copy:docker": "cp Dockerfile dist/ && cp docker-compose.yml dist/",
-    "build:copy:config": "cp package.json dist/ && cp yarn.lock dist/ && cp process.yml dist/",
-    "build:copy": "yarn build:copy:config && yarn build:copy:docker",
-    "build": "yarn clean && yarn build:app && yarn build:copy",
-    "dev": "yarn clean && tsc -w",
+    "start": "PORT=4001 NODE_ENV=development supervisor dist/app.js",
+    "copy:config": "cp package.json dist/ && cp yarn.lock dist/ && cp process.yml dist/",
+    "build": "yarn clean && yarn copy:config && tsc -w",
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "lint-fix": "tslint -p tsconfig.json -c tslint.json --fix",
     "test": "mocha test/*.test.js --compilers js:babel-register --require test/_helpers",
-    "test-watch": "npm run test -- --watch",
-    "lint": "eslint src/ test/",
-    "lint-watch": "esw -w src/ test/"
+    "test-watch": "npm run test -- --watch"
   },
   "author": {
     "name": "Lanvige Jiang"

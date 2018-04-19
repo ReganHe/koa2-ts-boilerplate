@@ -11,7 +11,6 @@ export class ConfigRepository extends Repository<Config> {
         app_id: fact.appId,
       },
     } as FindOneOptions<Config>;
-
     const data = await this.findOne(cfg);
     return data;
   }

@@ -1,8 +1,5 @@
 import { Service } from 'typedi';
-import * as request from 'request-promise';
-import config from '../../config/config';
 import { OrmRepository } from 'typeorm-typedi-extensions';
-import { Repository } from 'typeorm/repository/Repository';
 import { Config } from '../models/config';
 import { Fact } from '../models/fact';
 import * as RuleEngine from 'node-rules';
@@ -10,7 +7,6 @@ import { ConfigRepository } from '../repositories/configRepository';
 
 @Service()
 export class ConfigService {
-
   @OrmRepository(Config)
   private configRepository: ConfigRepository;
 
