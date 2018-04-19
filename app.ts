@@ -9,7 +9,7 @@ import authorizationChecker from './app/helpers/authorizationChecker';
 // 使用立即执行匿名函数（IIFE）简化入口
 (async () => {
   try {
-    // config ioc container
+    // IOC：Use TypeDI with routing-controllers and/or TypeORM
     routingUseContainer(Container);
     ormUseContainer(Container);
     // synchronize all db models
