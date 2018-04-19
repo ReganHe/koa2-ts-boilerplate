@@ -1,5 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn, OneToMany, CreateDateColumn, UpdateDateColumn } from 'typeorm';
-import { StringUtils } from '../../utils/stringUtils';
+import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 
 @Entity({ name: 'users' })
 export class User {
@@ -20,10 +19,10 @@ export class User {
   @Column()
   password: string;
 
-  @Column()
+  @Column({ default: '' })
   salt: string;
 
-  @Column({ name: 'state', default: 1 })
+  @Column({ name: 'state', default: 0 })
   state: number;
 
   @Column()
@@ -38,6 +37,6 @@ export class User {
   @UpdateDateColumn({ name: 'updated_at' })
   updatedAt: Date;
 
-  @Column({ name: 'deleted_at' })
+  @Column({ name: 'deleted_at', nullable: true })
   deletedAt: Date;
 }

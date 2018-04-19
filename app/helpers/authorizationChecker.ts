@@ -6,13 +6,12 @@ async function authorizationChecker(action: Action, roles?: string[]) {
   // perform queries based on token from request headers
   // const token = action.request.headers["authorization"];
   // return database.findUserByToken(token).roles.in(roles);
-  action.request.testfiled = "testvalue";
-
+  action.request.testfiled = 'testvalue';
   try {
-    const auth = action.request.headers["authorization"];
+    const auth = action.request.headers['authorization'];
     const token = auth.slice(7);
-    let decoded = jwt.verify(token, 'secret');
-    console.log(decoded)
+    const decoded = jwt.verify(token, 'secret');
+    console.log(decoded);
   } catch {
     return false;
   }
